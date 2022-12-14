@@ -1,0 +1,145 @@
+:root {
+  --clr-primary-400: hsl(158, 36%, 37%);
+  --clr-primary-700: hsl(158, 36%, 20%);
+  --clr-secondary-200: hsl(30, 38%, 92%);
+
+  --clr-neutral-900: hsl(212, 21%, 14%);
+  --clr-neutral-400: hsl(228, 12%, 48%);
+  --clr-neutral-100: hsl(0, 0%, 100%);
+
+  --ff-accent: "Fraunces", serif;
+  --ff-base: "Montserrat", sans-serif;
+
+  --fw-regular: 500;
+  --fw-bold: 700;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Generic Styling */
+
+body {
+  font-family: var(--ff-base);
+  font-weight: var(--fw-regular);
+  font-size: 0.875rem;
+  color: var(--clr-neutral-400);
+  background-color: var(--clr-secondary-200);
+
+  display: grid;
+  place-content: center;
+  margin: 1.5em;
+}
+
+/* Utilities */
+
+.flex-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+/* Buttons */
+
+.button {
+    font-weight: var(--fw-bold);
+    background-color: var(--clr-primary-400);
+    border: none;
+    border-radius: .5rem;
+    color: var(--clr-neutral-100);
+    padding: .75em 1em;
+    cursor: pointer;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+    content: "";
+    background-image: url("images/icon-cart.svg");
+    width: 15px;
+    height: 16px;
+}
+
+.button:is(:hover, :focus) {
+    background-color: var(--clr-primary-700);
+}
+
+/* Product Styling */
+
+.product {
+    background-color: var(--clr-neutral-100);
+    border-radius: .5rem;
+    overflow: hidden;
+    display: grid;
+    max-width: 600px;
+}
+
+@media (min-width: 600px) {
+    .product {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.product__content {
+    padding: 1.5rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.product__category {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.product__title {
+    font-family: var(--ff-accent);
+    font-size: 2.1rem;
+    line-height: 1;
+    color: var(--clr-neutral-900);
+}
+
+.product__price {
+    font-family: var(--ff-accent);
+    font-size: 1.875rem;
+    color: var(--clr-primary-400)
+}
